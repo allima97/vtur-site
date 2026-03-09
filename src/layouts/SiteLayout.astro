@@ -1,0 +1,99 @@
+---
+import "../styles/site.css";
+import { navigation } from "../data/siteContent";
+
+type Props = {
+  title: string;
+  description: string;
+};
+
+const { title, description } = Astro.props as Props;
+const pathname = Astro.url.pathname;
+
+const pageTitle = `${title} | vtur`;
+
+const isActive = (href: string) => {
+  if (href === "/") return pathname === "/";
+  return pathname.startsWith(href);
+};
+---
+
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="description" content={description} />
+    <meta name="theme-color" content="#0a0d26" />
+    <link rel="icon" href="/favicon.ico" sizes="any" />
+    <link rel="icon" href="/brand/vtur-symbol.svg" type="image/svg+xml" />
+    <link rel="icon" href="/favicon.png" type="image/png" sizes="64x64" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/manifest.webmanifest" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={pageTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content="/brand/vtur-symbol.png" />
+    <title>{pageTitle}</title>
+  </head>
+  <body>
+    <div class="site-backdrop" aria-hidden="true">
+      <div class="site-glow site-glow-a"></div>
+      <div class="site-glow site-glow-b"></div>
+      <div class="site-grid"></div>
+    </div>
+
+    <header class="site-header">
+      <div class="shell header-bar">
+        <a class="brand" href="/">
+          <img src="/brand/vtur-symbol.svg" alt="Simbolo do vtur" />
+          <div class="brand-copy">
+            <strong>VTUR</strong>
+            <span>CRM para Franquias CVC</span>
+          </div>
+        </a>
+
+        <nav class="top-nav" aria-label="Principal">
+          {navigation.map((item) => (
+            <a class={isActive(item.href) ? "active" : undefined} href={item.href}>
+              {item.label}
+            </a>
+          ))}
+        </nav>
+
+        <a class="header-cta" href="/contato">Agendar demonstracao</a>
+      </div>
+    </header>
+
+    <main>
+      <slot />
+    </main>
+
+    <footer class="site-footer">
+      <div class="shell footer-grid">
+        <div class="footer-brand">
+          <img src="/brand/vtur-symbol.svg" alt="Simbolo do vtur" />
+          <div>
+            <strong>VTUR</strong>
+            <p>CRM para Franquias CVC.</p>
+          </div>
+        </div>
+
+        <div class="footer-links">
+          <strong>Mapa do site</strong>
+          <a href="/produto">Produto</a>
+          <a href="/planos">Planos</a>
+          <a href="/institucional">Institucional</a>
+          <a href="/contato">Contato</a>
+        </div>
+
+        <div class="footer-links">
+          <strong>Perfis</strong>
+          <a href="/produto#vendedor">Vendedor</a>
+          <a href="/produto#gestor">Gestor</a>
+          <a href="/produto#master">Master</a>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

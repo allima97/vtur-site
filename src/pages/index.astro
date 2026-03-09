@@ -1,256 +1,220 @@
 ---
-const pageTitle = "vtur | Sistema de Gerenciamento de Vendas";
-const description = "Site institucional do vtur para produto, planos, precos e demonstracao comercial.";
+import SiteLayout from "../layouts/SiteLayout.astro";
+import {
+  faqs,
+  homepagePillars,
+  implementationSteps,
+  pricingPlans,
+  productMosaic,
+  roleContent,
+  roleHighlights,
+} from "../data/siteContent";
+
+const title = "CRM completo para turismo e viagens";
+const description =
+  "O vtur conecta CRM, vendas, orcamentos, operacao, atendimento, gestao e governanca multiempresa em uma unica plataforma.";
 ---
 
-<!doctype html>
-<html lang="pt-BR">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-    <meta name="description" content={description} />
-    <meta name="theme-color" content="#0b0f2a" />
-    <link rel="icon" href="/favicon.ico" sizes="any" />
-    <link rel="icon" href="/brand/vtur-symbol.svg" type="image/svg+xml" />
-    <link rel="icon" href="/favicon.png" type="image/png" sizes="64x64" />
-    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
-    <link rel="manifest" href="/manifest.webmanifest" />
-    <title>{pageTitle}</title>
-    <style>
-      :root {
-        --bg: #fbfbfd;
-        --ink: #0b0f2a;
-        --ink-soft: #475569;
-        --line: rgba(11, 15, 42, 0.08);
-        --accent: #7c3aed;
-        --accent-soft: #a855f7;
-        --panel: rgba(255, 255, 255, 0.82);
-      }
+<SiteLayout title={title} description={description}>
+  <section class="page-hero">
+    <div class="shell hero-layout">
+      <div>
+        <span class="eyebrow">CRM completo para turismo e viagens</span>
+        <h1 class="hero-title">Mais do que vendas: relacionamento, operacao e gestao em uma unica plataforma.</h1>
+        <p class="hero-copy">
+          O vtur foi desenhado para equipes comerciais, liderancas e operacoes multiempresa que
+          precisam acompanhar clientes, propostas, vendas, viagens, atendimento, performance e
+          governanca sem fragmentar a rotina em varias ferramentas.
+        </p>
+        <div class="hero-actions">
+          <a class="button" href="/contato">Solicitar demonstracao</a>
+          <a class="button-secondary" href="/produto">Ver modulos por perfil</a>
+        </div>
+      </div>
 
-      * {
-        box-sizing: border-box;
-      }
-
-      body {
-        margin: 0;
-        font-family: Manrope, ui-sans-serif, system-ui, sans-serif;
-        color: var(--ink);
-        background:
-          radial-gradient(circle at top left, rgba(124, 58, 237, 0.16), transparent 34%),
-          radial-gradient(circle at bottom right, rgba(168, 85, 247, 0.16), transparent 28%),
-          linear-gradient(180deg, #ffffff 0%, #f8f7ff 100%);
-      }
-
-      .shell {
-        width: min(1120px, calc(100% - 32px));
-        margin: 0 auto;
-      }
-
-      header {
-        padding: 28px 0 12px;
-      }
-
-      .brand {
-        display: inline-flex;
-        align-items: center;
-        gap: 14px;
-        text-decoration: none;
-        color: inherit;
-      }
-
-      .brand img {
-        width: 54px;
-        height: 54px;
-        border-radius: 16px;
-      }
-
-      .brand strong {
-        display: block;
-        font-size: 1.25rem;
-        letter-spacing: -0.03em;
-      }
-
-      .brand span {
-        display: block;
-        font-size: 0.92rem;
-        color: var(--ink-soft);
-      }
-
-      .hero {
-        display: grid;
-        grid-template-columns: minmax(0, 1.1fr) minmax(280px, 0.9fr);
-        gap: 28px;
-        padding: 28px 0 72px;
-        align-items: center;
-      }
-
-      .eyebrow {
-        display: inline-flex;
-        padding: 8px 12px;
-        border-radius: 999px;
-        background: rgba(124, 58, 237, 0.08);
-        color: var(--accent);
-        font-size: 0.85rem;
-        font-weight: 700;
-        letter-spacing: 0.04em;
-        text-transform: uppercase;
-      }
-
-      h1 {
-        margin: 18px 0 14px;
-        font-size: clamp(2.8rem, 6vw, 5.4rem);
-        line-height: 0.96;
-        letter-spacing: -0.06em;
-      }
-
-      p.lead {
-        margin: 0;
-        max-width: 52ch;
-        color: var(--ink-soft);
-        font-size: 1.1rem;
-        line-height: 1.7;
-      }
-
-      .actions {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 14px;
-        margin-top: 28px;
-      }
-
-      .btn {
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        min-height: 48px;
-        padding: 0 18px;
-        border-radius: 999px;
-        text-decoration: none;
-        font-weight: 700;
-      }
-
-      .btn.primary {
-        background: linear-gradient(135deg, var(--accent), var(--accent-soft));
-        color: white;
-        box-shadow: 0 18px 40px rgba(124, 58, 237, 0.18);
-      }
-
-      .btn.secondary {
-        border: 1px solid var(--line);
-        color: var(--ink);
-        background: rgba(255, 255, 255, 0.78);
-      }
-
-      .panel {
-        background: var(--panel);
-        border: 1px solid var(--line);
-        border-radius: 28px;
-        padding: 22px;
-        backdrop-filter: blur(10px);
-        box-shadow: 0 24px 70px rgba(11, 15, 42, 0.08);
-      }
-
-      .panel img {
-        width: 100%;
-        display: block;
-      }
-
-      .panel-mark {
-        width: min(320px, 72%);
-        margin: 6px auto 0;
-      }
-
-      .grid {
-        display: grid;
-        grid-template-columns: repeat(3, minmax(0, 1fr));
-        gap: 16px;
-        margin-top: 18px;
-      }
-
-      .mini-card {
-        border: 1px solid var(--line);
-        border-radius: 20px;
-        padding: 18px;
-        background: rgba(255, 255, 255, 0.74);
-      }
-
-      .mini-card strong {
-        display: block;
-        margin-bottom: 10px;
-        font-size: 1rem;
-      }
-
-      .mini-card p {
-        margin: 0;
-        color: var(--ink-soft);
-        line-height: 1.6;
-      }
-
-      footer {
-        padding: 0 0 48px;
-        color: var(--ink-soft);
-      }
-
-      @media (max-width: 900px) {
-        .hero {
-          grid-template-columns: 1fr;
-          padding-bottom: 48px;
-        }
-
-        .grid {
-          grid-template-columns: 1fr;
-        }
-      }
-    </style>
-  </head>
-  <body>
-    <div class="shell">
-      <header>
-        <a class="brand" href="/">
-          <img src="/brand/vtur-symbol.svg" alt="Simbolo do vtur" />
-          <div>
-            <strong>vtur</strong>
-            <span>Sistema de Gerenciamento de Vendas</span>
-          </div>
-        </a>
-      </header>
-
-      <main class="hero">
-        <section>
-          <span class="eyebrow">Repositorio institucional</span>
-          <h1>vtur para vendas, operacao e crescimento comercial.</h1>
-          <p class="lead">
-            Esta base separa o marketing do produto da aplicacao operacional. Aqui ficam homepage,
-            planos, precos, provas de valor, SEO e paginas de conversao do dominio `vtur.com.br`.
-          </p>
-          <div class="actions">
-            <a class="btn primary" href="https://vtur.app">Abrir app</a>
-            <a class="btn secondary" href="#proximos-passos">Ver roadmap inicial</a>
-          </div>
-        </section>
-
-        <aside class="panel">
-          <img class="panel-mark" src="/brand/vtur-symbol.svg" alt="Simbolo do vtur" />
-          <div class="grid" id="proximos-passos">
-            <article class="mini-card">
-              <strong>Produto</strong>
-              <p>Explicar modulos, rotina comercial, indicadores e operacao em uma narrativa clara.</p>
-            </article>
-            <article class="mini-card">
-              <strong>Comercial</strong>
-              <p>Publicar planos, precos, CTA para demo e captura de leads qualificados.</p>
-            </article>
-            <article class="mini-card">
-              <strong>SEO</strong>
-              <p>Estruturar conteudo evergreen para busca organica e posicionamento do vtur no mercado.</p>
-            </article>
-          </div>
-        </aside>
-      </main>
-
-      <footer>
-        Base inicial pronta para evolucao do site institucional em `vtur.com.br`.
-      </footer>
+      <aside class="hero-panel">
+        <div class="stat-grid">
+          <article class="stat-card">
+            <strong>Frente comercial</strong>
+            <span>Clientes, orcamentos, vendas, contratos, consultoria e follow-up integrados.</span>
+          </article>
+          <article class="stat-card">
+            <strong>Operacao</strong>
+            <span>Viagens, documentos, SAC, campanhas, agenda, tarefas e rotina de atendimento.</span>
+          </article>
+          <article class="stat-card">
+            <strong>Gestao</strong>
+            <span>Metas, escalas, equipe, comissionamento, regras comerciais e relatorios.</span>
+          </article>
+          <article class="stat-card">
+            <strong>Governanca</strong>
+            <span>Permissoes por perfil, visao por empresa e camada master para grupos e redes.</span>
+          </article>
+        </div>
+      </aside>
     </div>
-  </body>
-</html>
+  </section>
+
+  <section class="section">
+    <div class="shell">
+      <div class="section-header">
+        <p class="section-kicker">Posicionamento</p>
+        <h2 class="section-title">Como o vtur deve ser percebido no mercado</h2>
+        <p class="section-intro">
+          O site institucional passa a posicionar o produto como um CRM especializado no turismo,
+          com profundidade operacional, leitura gerencial e governanca corporativa. Essa e a mesma
+          logica usada por grandes empresas SaaS: valor primeiro, modulos depois.
+        </p>
+      </div>
+
+      <div class="pillars-grid">
+        {homepagePillars.map((item) => (
+          <article class="card">
+            <strong>{item.title}</strong>
+            <p>{item.description}</p>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="shell">
+      <div class="section-header">
+        <p class="section-kicker">Arquitetura do produto</p>
+        <h2 class="section-title">Uma plataforma unica para a rotina completa da operacao</h2>
+        <p class="section-intro">
+          Em vez de apresentar o sistema como um simples gerenciador de vendas, o vtur organiza o
+          discurso em blocos que fazem sentido para o negocio: CRM, comercial, operacao, financeiro,
+          performance e governanca.
+        </p>
+      </div>
+
+      <div class="overview-grid">
+        {productMosaic.map((item) => (
+          <article class="overview-card">
+            <strong>{item.title}</strong>
+            <p>{item.description}</p>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="shell">
+      <div class="section-header">
+        <p class="section-kicker">Perfis do sistema</p>
+        <h2 class="section-title">O produto se adapta ao papel de cada usuario</h2>
+        <p class="section-intro">
+          O site passa a explicar o sistema por permissao e responsabilidade operacional. Isso reduz
+          ruido comercial, facilita a venda consultiva e aumenta a percepcao de maturidade do produto.
+        </p>
+      </div>
+
+      <div class="role-bands">
+        {roleHighlights.map((item, index) => {
+          const roleId = roleContent[index]?.id ?? "vendedor";
+          return (
+            <article class="role-band" data-role={roleId}>
+              <strong>{item.title}</strong>
+              <p>{item.description}</p>
+              <a class="role-link" href={`/produto#${roleId}`}>Ver modulos</a>
+            </article>
+          );
+        })}
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="shell">
+      <div class="section-header">
+        <p class="section-kicker">Implantacao</p>
+        <h2 class="section-title">Confianca tambem se constroi mostrando metodo</h2>
+        <p class="section-intro">
+          Grandes empresas de software nao vendem apenas telas. Elas explicam processo, previsibilidade
+          e governanca. O vtur precisa fazer o mesmo para transmitir integridade e preparo operacional.
+        </p>
+      </div>
+
+      <div class="steps-grid">
+        {implementationSteps.map((item, index) => (
+          <article class="step-card">
+            <span>0{index + 1}</span>
+            <strong>{item.title}</strong>
+            <p>{item.description}</p>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="shell">
+      <div class="section-header">
+        <p class="section-kicker">Planos</p>
+        <h2 class="section-title">Comercialize por camada de maturidade, nao por lista solta de features</h2>
+        <p class="section-intro">
+          A pagina de planos foi estruturada para acomodar a tabela comercial definitiva depois, sem
+          inventar precos agora. O desenho ja segue a logica do produto: Comercial, Gestao e Master.
+        </p>
+      </div>
+
+      <div class="plans-grid">
+        {pricingPlans.map((plan) => (
+          <article class:list={["plan-card", { highlight: plan.highlight }]}>
+            <span class="plan-badge">{plan.name}</span>
+            <strong>{plan.name}</strong>
+            <p class="plan-audience">{plan.audience}</p>
+            <div class="plan-price">
+              {plan.price}
+              <small>{plan.description}</small>
+            </div>
+            <ul class="plan-features">
+              {plan.features.map((feature) => <li>{feature}</li>)}
+            </ul>
+            <div class="plan-actions">
+              <a class={plan.highlight ? "button-secondary" : "button"} href="/planos">Explorar plano</a>
+            </div>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="shell">
+      <div class="section-header">
+        <p class="section-kicker">FAQ estrategico</p>
+        <h2 class="section-title">As respostas que fortalecem confianca logo na apresentacao</h2>
+      </div>
+
+      <div class="faq-stack">
+        {faqs.map((item) => (
+          <details class="faq-item">
+            <summary>{item.question}</summary>
+            <p>{item.answer}</p>
+          </details>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-section">
+    <div class="shell">
+      <div class="cta-panel">
+        <h2>O vtur deve vender clareza, profundidade e governanca.</h2>
+        <p>
+          A base institucional ja nasce alinhada com esse posicionamento: um CRM completo para
+          turismo e viagens, com paginas de produto, perfis, planos, institucional e contato prontas
+          para evoluir comercialmente.
+        </p>
+        <div class="cta-actions">
+          <a class="button" href="/produto">Mapeamento completo dos modulos</a>
+          <a class="button-secondary" href="/contato">Planejar demonstracao comercial</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</SiteLayout>

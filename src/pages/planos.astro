@@ -1,0 +1,127 @@
+---
+import SiteLayout from "../layouts/SiteLayout.astro";
+import { pricingPlans } from "../data/siteContent";
+
+const title = "Planos";
+const description =
+  "Estrutura comercial do vtur organizada pelas camadas Comercial, Gestao e Master.";
+---
+
+<SiteLayout title={title} description={description}>
+  <section class="page-hero">
+    <div class="shell hero-layout">
+      <div>
+        <span class="eyebrow">Estrutura comercial</span>
+        <h1 class="hero-title">Planos pensados por maturidade operacional, nao por excesso de menu.</h1>
+        <p class="hero-copy">
+          A pagina de planos do vtur foi desenhada para refletir a evolucao natural do cliente:
+          primeiro a camada comercial, depois a camada de gestao e, por fim, a camada master para
+          multiempresa e governanca corporativa.
+        </p>
+        <div class="hero-actions">
+          <a class="button" href="/contato">Solicitar proposta</a>
+          <a class="button-secondary" href="/produto">Ver modulos de cada camada</a>
+        </div>
+      </div>
+
+      <aside class="hero-panel">
+        <strong>Orientacao comercial sugerida</strong>
+        <ul class="trust-list">
+          <li>Preco definitivo pode ser encaixado depois sem refazer a pagina.</li>
+          <li>Os cards ja sustentam argumentacao por escopo, perfil e valor percebido.</li>
+          <li>Tambem abrem espaco para cobranca de implantacao, treinamento e migracao.</li>
+        </ul>
+      </aside>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="shell">
+      <div class="section-header">
+        <p class="section-kicker">Pacotes recomendados</p>
+        <h2 class="section-title">Uma escada comercial coerente com o produto</h2>
+        <p class="section-intro">
+          Em vez de prometer tudo para todos, a proposta organiza o valor do sistema por camadas de
+          uso e governanca. Isso melhora a compreensao e protege a percepcao de confianca.
+        </p>
+      </div>
+
+      <div class="plans-grid">
+        {pricingPlans.map((plan) => (
+          <article class:list={["plan-card", { highlight: plan.highlight }]}>
+            <span class="plan-badge">{plan.name}</span>
+            <strong>{plan.name}</strong>
+            <p class="plan-audience">{plan.audience}</p>
+            <div class="plan-price">
+              {plan.price}
+              <small>{plan.description}</small>
+            </div>
+            <ul class="plan-features">
+              {plan.features.map((feature) => <li>{feature}</li>)}
+            </ul>
+            <div class="plan-actions">
+              <a class={plan.highlight ? "button-secondary" : "button"} href="/contato">Solicitar proposta</a>
+            </div>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="shell content-layout">
+      <div class="content-copy">
+        <div class="section-header">
+          <p class="section-kicker">Como vender</p>
+          <h2 class="section-title">O que grandes empresas fazem bem e aqui foi adaptado</h2>
+        </div>
+
+        <h3>Comecam pelo resultado</h3>
+        <p>
+          Home e pagina de planos trabalham com valor percebido, nao apenas listagem tecnica. O
+          vtur precisa ser apresentado como plataforma que organiza receita, relacionamento,
+          atendimento e governanca.
+        </p>
+
+        <h3>Mostram clareza de escopo</h3>
+        <p>
+          Cada plano precisa deixar claro quem compra, por que compra e qual camada operacional
+          esta sendo habilitada. Isso reduz friccao comercial e melhora o entendimento do produto.
+        </p>
+
+        <h3>Ligam venda a implantacao</h3>
+        <p>
+          Em produtos mais densos, a pagina de planos normalmente conversa com onboarding,
+          migracao, configuracao e treinamento. Essa mesma logica foi embutida aqui para o vtur.
+        </p>
+      </div>
+
+      <aside class="content-panel">
+        <strong>Campos para completar depois</strong>
+        <ul class="trust-list">
+          <li>Tabela oficial de recorrencia mensal por plano.</li>
+          <li>Valor ou regra de implantacao inicial.</li>
+          <li>Quantidade de usuarios incluida em cada camada.</li>
+          <li>Politica de expansao por unidade, filial ou empresa.</li>
+          <li>Servicos opcionais de migracao, treinamento e suporte.</li>
+        </ul>
+      </aside>
+    </div>
+  </section>
+
+  <section class="cta-section">
+    <div class="shell">
+      <div class="cta-panel">
+        <h2>A pagina de planos ja esta pronta para receber a tabela comercial final.</h2>
+        <p>
+          A arquitetura foi criada de forma segura: sem inventar valores agora, mas com toda a
+          estrutura comercial pronta para encaixar precos reais quando voce definir a regra final.
+        </p>
+        <div class="cta-actions">
+          <a class="button" href="/contato">Avancar com proposta</a>
+          <a class="button-secondary" href="/produto">Validar modulos por perfil</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</SiteLayout>

@@ -1,0 +1,130 @@
+---
+import SiteLayout from "../layouts/SiteLayout.astro";
+import { implementationSteps, institutionalPrinciples } from "../data/siteContent";
+
+const title = "Institucional";
+const description =
+  "Posicionamento institucional do vtur, com foco em confianca, especializacao no turismo e metodo de implantacao.";
+---
+
+<SiteLayout title={title} description={description}>
+  <section class="page-hero">
+    <div class="shell hero-layout">
+      <div>
+        <span class="eyebrow">Institucional</span>
+        <h1 class="hero-title">Elegancia visual com mensagem de confianca, seriedade e profundidade operacional.</h1>
+        <p class="hero-copy">
+          A pagina institucional nao deve competir com o produto. Ela deve sustentar a marca,
+          explicar a direcao da empresa e transmitir que o vtur entende o setor de turismo de forma
+          especifica, madura e responsavel.
+        </p>
+        <div class="hero-actions">
+          <a class="button" href="/contato">Conversar com o time</a>
+          <a class="button-secondary" href="/produto">Entender o produto</a>
+        </div>
+      </div>
+
+      <aside class="hero-panel">
+        <strong>Mensagem institucional recomendada</strong>
+        <ul class="trust-list">
+          <li>Especializacao no segmento de turismo e viagens.</li>
+          <li>Compromisso com clareza operacional e governanca.</li>
+          <li>Evolucao do cliente por maturidade, nao por modismo.</li>
+        </ul>
+      </aside>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="shell">
+      <div class="section-header">
+        <p class="section-kicker">Princípios</p>
+        <h2 class="section-title">Os pilares que devem orientar a narrativa da marca</h2>
+      </div>
+
+      <div class="value-grid">
+        {institutionalPrinciples.map((item) => (
+          <article class="card">
+            <strong>{item.title}</strong>
+            <p>{item.description}</p>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="shell content-layout">
+      <div class="content-copy">
+        <div class="section-header">
+          <p class="section-kicker">Narrativa institucional</p>
+          <h2 class="section-title">Como o vtur deve se apresentar para o mercado</h2>
+        </div>
+
+        <h3>Mais do que um gerenciador de vendas</h3>
+        <p>
+          O posicionamento central do site precisa deixar claro que o vtur e um CRM completo para
+          turismo e viagens. A venda e um pilar importante, mas o produto tambem organiza
+          relacionamento, operacao, atendimento, performance e governanca.
+        </p>
+
+        <h3>Confiança nasce da organizacao do discurso</h3>
+        <p>
+          Marcas fortes mostram foco. Por isso o institucional evita promessas excessivas e trabalha
+          com profundidade, clareza e aderencia ao problema real do cliente.
+        </p>
+
+        <h3>Integridade tambem e previsibilidade</h3>
+        <p>
+          Empresas de software que passam seguranca deixam visivel o metodo de implantacao, a
+          camada de governanca e o criterio de escopo. Esse mesmo principio foi aplicado aqui.
+        </p>
+      </div>
+
+      <aside class="content-panel">
+        <strong>Tom institucional sugerido</strong>
+        <ul class="trust-list">
+          <li>Moderno sem parecer artificial.</li>
+          <li>Elegante sem exagero visual.</li>
+          <li>Seguro sem linguagem burocratica.</li>
+          <li>Especializado no turismo sem se limitar a um nicho estreito.</li>
+        </ul>
+      </aside>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="shell">
+      <div class="section-header">
+        <p class="section-kicker">Metodo</p>
+        <h2 class="section-title">Uma jornada de implantacao que reforca credibilidade</h2>
+      </div>
+
+      <div class="steps-grid">
+        {implementationSteps.map((item, index) => (
+          <article class="step-card">
+            <span>0{index + 1}</span>
+            <strong>{item.title}</strong>
+            <p>{item.description}</p>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-section">
+    <div class="shell">
+      <div class="cta-panel">
+        <h2>O institucional agora sustenta o produto em vez de competir com ele.</h2>
+        <p>
+          A pagina foi desenhada para transmitir especializacao, metodo e seriedade, preparando o
+          terreno para paginas de produto, planos e contato converterem com mais consistencia.
+        </p>
+        <div class="cta-actions">
+          <a class="button" href="/planos">Ver estrutura comercial</a>
+          <a class="button-secondary" href="/contato">Planejar proxima etapa</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</SiteLayout>

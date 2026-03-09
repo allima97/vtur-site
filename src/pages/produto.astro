@@ -1,0 +1,104 @@
+---
+import SiteLayout from "../layouts/SiteLayout.astro";
+import { roleContent } from "../data/siteContent";
+
+const title = "Produto e modulos por perfil";
+const description =
+  "Mapeamento do vtur por permissao, com modulos e funcoes separadas entre Vendedor, Gestor e Master.";
+---
+
+<SiteLayout title={title} description={description}>
+  <section class="page-hero">
+    <div class="shell hero-layout">
+      <div>
+        <span class="eyebrow">Mapeamento por permissao</span>
+        <h1 class="hero-title">Os modulos do vtur organizados pelo que cada perfil realmente opera.</h1>
+        <p class="hero-copy">
+          Esta pagina traduz a estrutura atual do sistema para o discurso do site institucional.
+          Em vez de listar telas isoladas, apresentamos o produto por nivel de acesso, contexto de
+          uso e resultado esperado.
+        </p>
+        <div class="hero-actions">
+          <a class="button" href="/planos">Relacionar modulos aos planos</a>
+          <a class="button-secondary" href="/contato">Discutir configuracao ideal</a>
+        </div>
+      </div>
+
+      <aside class="hero-panel">
+        <strong>Como o produto esta sendo apresentado</strong>
+        <ul class="trust-list">
+          <li>Vendedor: CRM, rotina diaria, vendas, viagens, atendimento e performance.</li>
+          <li>Gestor: equipe, metas, escala, parametros, cadastros e inteligencia gerencial.</li>
+          <li>Master: multiempresa, usuarios, permissoes e governanca consolidada.</li>
+        </ul>
+      </aside>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="shell">
+      <div class="section-header">
+        <p class="section-kicker">Matriz de acesso</p>
+        <h2 class="section-title">Separacao clara entre operacao comercial, gestao e governanca</h2>
+        <p class="section-intro">
+          O sistema possui muitas capacidades, mas o marketing precisa tornalas legiveis. Por isso a
+          pagina de produto foi montada em tres grandes camadas de permissao.
+        </p>
+      </div>
+
+      <div class="module-groups">
+        {roleContent.map((role) => (
+          <article class="role-section" id={role.id}>
+            <div class="role-topline">
+              <div>
+                <span class="role-badge">{role.badge}</span>
+                <h2 class="role-label">{role.label}</h2>
+                <p class="role-summary">{role.summary}</p>
+              </div>
+              <a class="button-secondary" href="/contato">Solicitar demonstracao</a>
+            </div>
+
+            {role.inherit && <p class="inherit-note">{role.inherit}</p>}
+
+            <ul class="outcomes-list">
+              {role.outcomes.map((item) => <li>{item}</li>)}
+            </ul>
+
+            <div class="module-groups">
+              {role.groups.map((group) => (
+                <section class="module-group">
+                  <h3 class="module-group-title">{group.title}</h3>
+                  <p class="module-group-copy">{group.description}</p>
+                  <div class="module-grid">
+                    {group.modules.map((module) => (
+                      <article class="module-item">
+                        <strong>{module.name}</strong>
+                        <p>{module.description}</p>
+                      </article>
+                    ))}
+                  </div>
+                </section>
+              ))}
+            </div>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-section">
+    <div class="shell">
+      <div class="cta-panel">
+        <h2>O site agora pode vender o produto com profundidade real.</h2>
+        <p>
+          Esta matriz serve tanto para a pagina comercial quanto para alinhar discurso de vendas,
+          material institucional, onboarding e implantacao.
+        </p>
+        <div class="cta-actions">
+          <a class="button" href="/planos">Ver estrutura comercial</a>
+          <a class="button-secondary" href="/institucional">Entender a narrativa institucional</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</SiteLayout>
