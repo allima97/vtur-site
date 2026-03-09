@@ -145,6 +145,26 @@ a {
   font-size: 0.84rem;
 }
 
+.brand-copy-inline {
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.brand-copy-inline strong,
+.brand-copy-inline span {
+  display: inline;
+}
+
+.brand-copy-inline span {
+  font-size: 0.96rem;
+}
+
+.footer-lockup strong {
+  display: block;
+}
+
 .top-nav {
   display: flex;
   align-items: center;
@@ -851,6 +871,19 @@ a {
 
   .brand-copy span {
     max-width: 24ch;
+  }
+
+  .brand-copy-inline {
+    display: block;
+  }
+
+  .brand-copy-inline strong,
+  .brand-copy-inline span {
+    display: block;
+  }
+
+  .brand-copy-inline span {
+    font-size: 0.84rem;
   }
 
   .hero-title {
