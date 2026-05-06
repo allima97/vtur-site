@@ -309,3 +309,32 @@ body{background:linear-gradient(180deg,#f8fafc 0%,#ffffff 44%,#f8fafc 100%);}
 
 /* Ícone específico para Follow-up no bloco de CRM */
 .product-section .module-item:nth-child(6)::before,#perfis .module-item:nth-child(6)::before{background-color:#eef2ff;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 24 24' fill='none' stroke='%234f46e5' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M21 15a4 4 0 0 1-4 4H8l-5 3V7a4 4 0 0 1 4-4h10a4 4 0 0 1 4 4z'/%3E%3Cpath d='M8 9h8'/%3E%3Cpath d='M8 13h5'/%3E%3C/svg%3E");}
+
+
+/* Home: grade de arquitetura em 3 + 3 */
+.overview-grid{grid-template-columns:repeat(3,minmax(0,1fr));}
+@media(max-width:1080px){.overview-grid{grid-template-columns:repeat(2,minmax(0,1fr));}}
+@media(max-width:760px){.overview-grid{grid-template-columns:1fr;}}
+
+
+/* Home: cards de arquitetura sem linha lateral e com ícones coloridos */
+.overview-card{position:relative;border-left:1px solid rgba(226,232,240,.92) !important;padding:22px 22px 22px 74px;min-height:178px;}
+.overview-card::before{content:"";position:absolute;left:22px;top:24px;width:34px;height:34px;border-radius:11px;background:#eef2ff;background-repeat:no-repeat;background-position:center;background-size:18px 18px;}
+.overview-card:nth-child(6n+1)::before{background-color:#eef2ff;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 24 24' fill='none' stroke='%234f46e5' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2'/%3E%3Ccircle cx='9' cy='7' r='4'/%3E%3Cpath d='M19 8v6'/%3E%3Cpath d='M22 11h-6'/%3E%3C/svg%3E");}
+.overview-card:nth-child(6n+2)::before{background-color:#f0fdf4;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 24 24' fill='none' stroke='%2322c55e' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='8' cy='21' r='1'/%3E%3Ccircle cx='19' cy='21' r='1'/%3E%3Cpath d='M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h7.72a2 2 0 0 0 2-1.58L20 7H5.12'/%3E%3C/svg%3E");}
+.overview-card:nth-child(6n+3)::before{background-color:#f0fdfa;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 24 24' fill='none' stroke='%2314b8a6' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M9 18h6'/%3E%3Cpath d='M10 22h4'/%3E%3Cpath d='M2 12a10 10 0 1 1 20 0c0 3-1.5 4.5-3 6H5c-1.5-1.5-3-3-3-6z'/%3E%3C/svg%3E");}
+.overview-card:nth-child(6n+4)::before{background-color:#eff6ff;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 24 24' fill='none' stroke='%232563eb' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M3 3v18h18'/%3E%3Cpath d='m19 9-5 5-4-4-3 3'/%3E%3C/svg%3E");}
+.overview-card:nth-child(6n+5)::before{background-color:#fff7ed;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 24 24' fill='none' stroke='%23f97316' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M17.8 19.2 16 11l4-4c1.1-1.1 1.4-2.7.7-3.4-.7-.7-2.3-.4-3.4.7l-4 4-8.2-1.8-1.3 1.3 6.6 3.4-4 4-3-.4-1 1 4.2 1.6 1.6 4.2 1-1-.4-3 4-4 3.4 6.6 1.6-1z'/%3E%3C/svg%3E");}
+.overview-card:nth-child(6n+6)::before{background-color:#f1f5f9;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 24 24' fill='none' stroke='%2364758b' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10'/%3E%3Cpath d='m9 12 2 2 4-4'/%3E%3C/svg%3E");}
+.overview-card strong{display:block;margin-bottom:10px;}
+@media(max-width:760px){.overview-card{padding-left:66px}.overview-card::before{left:18px}}
+
+
+/* Home: cards de perfis sem linha superior e com ícones */
+.role-band{position:relative;border-top:1px solid var(--line) !important;padding:24px 24px 24px 78px;}
+.role-band::before{content:"";position:absolute;left:24px;top:24px;width:36px;height:36px;border-radius:12px;background-repeat:no-repeat;background-position:center;background-size:19px 19px;}
+.role-band[data-role=vendedor]::before{background-color:#eef2ff;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 24 24' fill='none' stroke='%234f46e5' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2'/%3E%3Ccircle cx='9' cy='7' r='4'/%3E%3Cpath d='m16 11 2 2 4-4'/%3E%3C/svg%3E");}
+.role-band[data-role=gestor]::before{background-color:#eff6ff;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 24 24' fill='none' stroke='%232563eb' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M3 3v18h18'/%3E%3Cpath d='m19 9-5 5-4-4-3 3'/%3E%3C/svg%3E");}
+.role-band[data-role=master]::before{background-color:#fff7ed;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 24 24' fill='none' stroke='%23f97316' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10'/%3E%3Cpath d='m9 12 2 2 4-4'/%3E%3C/svg%3E");}
+.role-band strong{display:block;margin-top:2px;}
+@media(max-width:760px){.role-band{padding-left:70px}.role-band::before{left:20px}}
