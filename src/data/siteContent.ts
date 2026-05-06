@@ -43,7 +43,7 @@ export const productIndex: ProductIndexSection[] = [
     { name: "CRM visual", description: "Temas para aniversário, ano novo, relacionamento e campanhas com arte e assinatura." },
     { name: "Últimas compras", description: "Lista de compras recentes para contato de agradecimento e pós-venda." },
     { name: "Aniversariantes", description: "Clientes por período com atalhos para acao comercial." },
-    { name: "Histórico de envios", description: "Registro de templates, avisos e contatos realizados." },
+    { name: "Follow-up", description: "Clientes retornados de viagem, contatos de agradecimento e próximos passos do pós-venda." },
   ]},
   { id: "orcamentos", number: "03", title: "Orçamentos, propostas e roteiros", summary: "Do atendimento inicial ao PDF final, o sistema organiza proposta, roteiro e conversão para venda.", features: [
     { name: "Orçamentos", description: "Criacao, edicao, status, criticidade, itens, valores e cliente manual quando necessário." },

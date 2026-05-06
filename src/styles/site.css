@@ -305,3 +305,7 @@ body{background:linear-gradient(180deg,#f8fafc 0%,#ffffff 44%,#f8fafc 100%);}
 .product-section .module-item:nth-child(6n+6)::before,#perfis .module-item:nth-child(6n+6)::before{background-color:#fffbeb;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 24 24' fill='none' stroke='%23f59e0b' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M12 8v5l3 3'/%3E%3Ccircle cx='12' cy='12' r='10'/%3E%3C/svg%3E");}
 .product-section .module-item strong,#perfis .module-item strong{font-size:1rem;}
 @media(max-width:760px){.product-section .module-item,#perfis .module-item{padding-left:64px}.product-section .module-item::before,#perfis .module-item::before{left:16px}}
+
+
+/* Ícone específico para Follow-up no bloco de CRM */
+.product-section .module-item:nth-child(6)::before,#perfis .module-item:nth-child(6)::before{background-color:#eef2ff;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 24 24' fill='none' stroke='%234f46e5' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M21 15a4 4 0 0 1-4 4H8l-5 3V7a4 4 0 0 1 4-4h10a4 4 0 0 1 4 4z'/%3E%3Cpath d='M8 9h8'/%3E%3Cpath d='M8 13h5'/%3E%3C/svg%3E");}
