@@ -223,3 +223,45 @@ body{background:linear-gradient(180deg,#f8fafc 0%,#ffffff 44%,#f8fafc 100%);}
 @keyframes cleanDot{0%,33%{background:#4f46e5;transform:scale(1.25)}34%,100%{background:#c7d2fe;transform:scale(1)}}
 @media(max-width:760px){.clean-track{min-height:760px}.clean-kpis,.clean-two,.clean-three{grid-template-columns:1fr}.clean-bars{height:170px}.clean-screen-head{align-items:flex-start}.clean-screen-head span{white-space:nowrap}}
 @media(prefers-reduced-motion:reduce){.clean-track{min-height:auto}.clean-slide{position:relative;opacity:1;visibility:visible;animation:none;margin-bottom:14px}.clean-dots{display:none}}
+
+
+/* Slide operacional com apenas viagens e aniversariantes */
+.clean-ops-two{grid-template-columns:1fr 1fr;}
+.clean-ops-two article{min-height:360px;}
+.clean-ops-two .clean-trip,.clean-ops-two .clean-person{grid-template-columns:34px minmax(0,1fr) auto;}
+.clean-ops-two .clean-person{grid-template-columns:38px minmax(0,1fr);}
+.clean-ops-two strong,.clean-ops-two small{word-break:normal;overflow-wrap:normal;}
+@media(max-width:760px){.clean-ops-two{grid-template-columns:1fr}.clean-ops-two article{min-height:auto}}
+
+
+/* Ícones SVG no padrão visual do vtur-svelte */
+.clean-kpis i.vtur-card-icon{font-size:0;}
+.clean-kpis i.vtur-card-icon svg{width:16px;height:16px;stroke:currentColor;stroke-width:2;fill:none;stroke-linecap:round;stroke-linejoin:round;}
+
+
+/* Cores dos ícones alinhadas aos KPIs reais do vtur-svelte */
+.clean-kpis .kpi-sales i{background:#fff7ed;color:#f97316;}
+.clean-kpis .kpi-goal i{background:#f0fdfa;color:#14b8a6;}
+.clean-kpis .kpi-insurance i{background:#fffbeb;color:#f59e0b;}
+.clean-kpis .kpi-ok i{background:#f0fdf4;color:#22c55e;}
+.clean-kpis .kpi-pending i{background:#fff7ed;color:#f97316;}
+.clean-kpis .kpi-fees i{background:#f0fdfa;color:#14b8a6;}
+.clean-kpis .kpi-goal b span,.clean-kpis .kpi-fees b span{background:#14b8a6;}
+.clean-kpis .kpi-insurance b span,.clean-kpis .kpi-ok b span{background:#22c55e;}
+
+
+/* Ícones de viagens e aniversariantes no estilo vtur-svelte */
+.clean-icon-head{display:flex;align-items:center;gap:12px;}
+.clean-icon-head i,.clean-trip i.trip-pin{display:grid;place-items:center;flex:0 0 auto;border-radius:10px;font-style:normal;}
+.clean-icon-head i{width:32px;height:32px;}
+.clean-icon-head svg,.clean-trip i.trip-pin svg{width:17px;height:17px;stroke:currentColor;stroke-width:2;fill:none;stroke-linecap:round;stroke-linejoin:round;}
+.clean-icon-head .head-plane{background:#eef2ff;color:#4f46e5;}
+.clean-icon-head .head-gift{background:#f0fdf4;color:#22c55e;}
+.clean-trip i.trip-pin{width:34px;height:34px;background:#eef2ff;color:#4f46e5;}
+.clean-trip i.trip-pin svg{width:16px;height:16px;}
+.clean-birthday-panel .clean-person b{background:#22c55e;color:#fff;}
+
+
+/* Tabela financeira do hero com recibos e status */
+.clean-table.clean-table-two div,.clean-table.clean-table-two p{grid-template-columns:1fr auto;}
+.clean-table.clean-table-two p b{justify-self:end;}
