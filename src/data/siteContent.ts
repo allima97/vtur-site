@@ -67,7 +67,7 @@ export const productIndex: ProductIndexSection[] = [
     { name: "Fechamento", description: "Consolidacao mensal restrita ao perfil financeiro." },
     { name: "Ajustes de vendas", description: "Rateio, vendedor de ranking, produto de ranking e revisao de recibos conciliados." },
     { name: "Formas de pagamento", description: "Regras de desconto, paga comissão, status e condicoes por empresa." },
-    { name: "Notas fiscais", description: "Área reservada ao perfil financeiro para controle fiscal e operacional." },
+    { name: "Notas fiscais", description: "Em breve: área reservada ao perfil financeiro para controle fiscal e operacional." },
   ]},
   { id: "operacao", number: "06", title: "Operação, viagem e atendimento", summary: "Depois da compra, viagem, documento, voucher, SAC e follow-up continuam no mesmo ambiente.", features: [
     { name: "Viagens", description: "Lista, detalhe, status, dossie, passageiros, recibos e acompanhamento por data." },
@@ -104,7 +104,7 @@ export const roleHighlights: FeatureCard[] = [
 export const roleContent: RoleContent[] = [
   { id: "vendedor", label: "Vendedor", badge: "Operação comercial", summary: "Perfil para quem vende, acompanha clientes e transforma atendimento em reserva, venda e pós-venda.", outcomes: ["Consulta carteira, aniversariantes, últimas compras e histórico.", "Cria vendas, importa contratos, acompanha orçamentos e visualiza comissões.", "Organiza agenda, tarefas, viagens, SAC e follow-up."], groups: [
     { title: "CRM e rotina", description: "Ferramentas para manter a carteira ativa.", modules: [
-      { name: "Dashboard vendedor", description: "KPIs, próximas viagens, atividades e aniversariantes." }, { name: "Clientes", description: "Carteira, acompanhantes, histórico, CRM e templates." }, { name: "Agenda e tarefas", description: "Compromissos, Kanban/lista, prioridade e categoria." }, { name: "Consultoria online", description: "Atendimentos, destino, taxa, lembrete e notas." }]},
+      { name: "Dashboard vendedor", description: "KPIs, próximas viagens, atividades e aniversariantes." }, { name: "Clientes", description: "Carteira, acompanhantes, histórico, CRM e templates." }, { name: "Agenda e tarefas", description: "Compromissos, Kanban/lista, prioridade e categoria." }, { name: "Consultoria online", description: "Em breve: atendimentos online com destino, taxa, lembrete e notas." }]},
     { title: "Venda e proposta", description: "Do contrato ao recibo.", modules: [
       { name: "Vendas", description: "Cadastro, edicao, recibos, pagamentos e contratos." }, { name: "Importar vendas", description: "CVC, cruzeiro e Rextur com extracao de campos críticos." }, { name: "Orçamentos", description: "Propostas, status, interacoes, itens e conversão." }, { name: "Roteiros", description: "Dias, hoteis, transportes e investimento." }]},
   ]},
@@ -118,7 +118,7 @@ export const roleContent: RoleContent[] = [
     { title: "Conferencia e conciliação", description: "Rotina financeira diária.", modules: [
       { name: "Conciliação", description: "Importar, conciliar, auditar diferenca e sanear." }, { name: "Ajustes de vendas", description: "Rateios, vendedor destino e percentual por recibo." }, { name: "Baixa RAC", description: "Identificacao de documentos fora do ranking comum." }, { name: "Execucoes", description: "Histórico de processamento e status." }]},
     { title: "Comissões e fechamento", description: "Ciclo de pagamento.", modules: [
-      { name: "Comissões", description: "Calculo, consulta, pagamento, edicao e cancelamento." }, { name: "Fechamento", description: "Consolidacao mensal restrita ao financeiro." }, { name: "Notas fiscais", description: "Área fiscal visivel somente para financeiros." }, { name: "Auditoria", description: "Logs, diferencas, detalhes e rastreio." }]},
+      { name: "Comissões", description: "Calculo, consulta, pagamento, edicao e cancelamento." }, { name: "Fechamento", description: "Consolidacao mensal restrita ao financeiro." }, { name: "Notas fiscais", description: "Em breve: área fiscal visível somente para financeiros." }, { name: "Auditoria", description: "Logs, diferencas, detalhes e rastreio." }]},
   ]},
   { id: "master", label: "Master", badge: "Governança multiempresa", inherit: "Camada executiva para grupos, redes e operações com mais de uma empresa.", summary: "Perfil para consolidar indicadores, controlar empresas, usuários, permissões e escopos.", outcomes: ["Ve vendas de todas as equipes e empresas atribuidas.", "Compara vendedores independente da loja.", "Administra usuários, empresas, permissões e módulos."], groups: [
     { title: "Visão executiva", description: "Indicadores consolidados.", modules: [
