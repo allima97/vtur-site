@@ -1,390 +1,156 @@
-export type FeatureCard = {
-  title: string;
-  description: string;
-};
-
-export type ModuleItem = {
-  name: string;
-  description: string;
-};
-
-export type ModuleGroup = {
-  title: string;
-  description: string;
-  modules: ModuleItem[];
-};
-
-export type RoleContent = {
-  id: "vendedor" | "gestor" | "master";
-  label: string;
-  summary: string;
-  badge: string;
-  inherit?: string;
-  outcomes: string[];
-  groups: ModuleGroup[];
-};
-
-export type PlanCard = {
-  name: string;
-  audience: string;
-  price: string;
-  description: string;
-  highlight?: boolean;
-  features: string[];
-};
+export type FeatureCard = { title: string; description: string };
+export type ModuleItem = { name: string; description: string };
+export type ProductIndexSection = { id: string; number: string; title: string; summary: string; features: ModuleItem[] };
+export type RoleContent = { id: "vendedor" | "gestor" | "financeiro" | "master"; label: string; badge: string; summary: string; inherit?: string; outcomes: string[]; groups: { title: string; description: string; modules: ModuleItem[] }[] };
+export type PlanCard = { name: string; audience: string; price: string; description: string; highlight?: boolean; features: string[] };
 
 export const navigation = [
-  { href: "/", label: "Apresentacao" },
-  { href: "/produto", label: "Produto" },
+  { href: "/", label: "Início" },
+  { href: "/produto", label: "Funções" },
   { href: "/planos", label: "Planos" },
   { href: "/institucional", label: "Institucional" },
   { href: "/contato", label: "Contato" },
 ];
 
 export const homepagePillars: FeatureCard[] = [
-  {
-    title: "CRM de ponta a ponta",
-    description:
-      "Clientes, orcamentos, vendas, follow-up, consultoria e pos-venda em uma operacao conectada.",
-  },
-  {
-    title: "Rotina operacional do turismo",
-    description:
-      "Viagens, documentos, campanhas, SAC, escalas e dossies organizados em uma unica plataforma.",
-  },
-  {
-    title: "Gestao com governanca",
-    description:
-      "Permissoes por perfil, visao por empresa, multiempresa e regras para cada nivel de acesso.",
-  },
-  {
-    title: "Performance comercial",
-    description:
-      "Dashboards, ranking, metas, comissoes, conciliacao e relatorios para tomada de decisao.",
-  },
-];
-
-export const roleHighlights: FeatureCard[] = [
-  {
-    title: "Vendedor",
-    description:
-      "Rotina diaria, carteira de clientes, vendas, orcamentos, agenda, viagens, SAC e comissionamento.",
-    },
-  {
-    title: "Gestor",
-    description:
-      "Visao ampliada da equipe com metas, escalas, conciliacao, parametros, cadastros e relatorios gerenciais.",
-  },
-  {
-    title: "Master",
-    description:
-      "Governanca multiempresa com empresas, usuarios, permissoes e analise consolidada da operacao.",
-  },
+  { title: "Venda importada sem retrabalho", description: "Contratos CVC, cruzeiros e Rextur entram com recibos, taxas, passageiros, pagamentos e dados de reserva estruturados." },
+  { title: "Gestão real da equipe", description: "Dashboards por vendedor, gestor, financeiro e master, com metas, ranking, follow-up, últimas compras e aniversariantes." },
+  { title: "Financeiro ligado a operação", description: "Conciliação, comissionamento, fechamento, formas de pagamento, notas fiscais e auditoria conectados ao cadastro da venda." },
+  { title: "Governança multiempresa", description: "Permissões por módulo, escopo por empresa, master multiunidade e controles administrativos para operações em crescimento." },
 ];
 
 export const productMosaic: FeatureCard[] = [
-  {
-    title: "Carteira e relacionamento",
-    description:
-      "Historico do cliente, classificacao de perfil, acompanhantes, contato recorrente e memoria comercial.",
-  },
-  {
-    title: "Venda, proposta e importacao",
-    description:
-      "Ciclo comercial com orcamentos, contratos, importacoes em lote e acompanhamento por status.",
-  },
-  {
-    title: "Operacao e pos-venda",
-    description:
-      "Dossie de viagem, documentos, follow-up, consultoria e controle estruturado de SAC.",
-  },
-  {
-    title: "Rotina de equipe",
-    description:
-      "Agenda, tarefas, mural, campanhas, escala individual e alinhamento da operacao diaria.",
-  },
-  {
-    title: "Financeiro e regras comerciais",
-    description:
-      "Comissionamento, formas de pagamento, regras de comissao, conciliacao e fechamento.",
-  },
-  {
-    title: "Inteligencia e consolidacao",
-    description:
-      "Dashboards, KPIs, ranking e relatorios por venda, destino, produto, cliente e empresa.",
-  },
+  { title: "CRM para turismo", description: "Clientes, acompanhantes, histórico, preferencias, aniversarios, CRM visual e contatos por tema." },
+  { title: "Vendas e importações", description: "Cadastro manual, importação CVC, cruzeiros, Rextur, recibos complementares, rateios e contratos." },
+  { title: "Orçamentos e roteiros", description: "Propostas, PDFs, roteiros personalizados, parâmetros de marca e conversão para venda." },
+  { title: "Relatórios gerenciais", description: "Vendas, clientes, produtos, destinos, ranking, recibos e visoes por período, empresa e vendedor." },
+  { title: "Operação de viagem", description: "Viagens, vouchers, documentos, campanhas, SAC, acompanhamento, agenda, tarefas e últimas compras." },
+  { title: "Administracao segura", description: "Usuários, permissões, planos, logs, parâmetros, documentacao, MFA, passkeys e manutencao do sistema." },
+];
+
+export const productIndex: ProductIndexSection[] = [
+  { id: "vendas", number: "01", title: "Vendas e importação inteligente", summary: "Documentos e reservas viram vendas estruturadas, com recibos, pagamentos e taxas.", features: [
+    { name: "Importação CVC", description: "Leitura de contrato, cliente, passageiros, recibos, taxas, pagamentos, descontos e total pago." },
+    { name: "Importação Rextur", description: "Uso do LOC como reserva e captura de Tax. Emb., RAV, RC, tarifa e bilhetes quando disponíveis." },
+    { name: "Importação de cruzeiro", description: "Entrada assistida para reservas maritimas, parcelas e dados operacionais da reserva." },
+    { name: "Cadastro manual completo", description: "Venda com cliente manual ou cadastrado, destino, recibos, pagamentos, taxas, DU, RAV e anexos." },
+    { name: "Recibos complementares", description: "Vinculo entre recibos relacionados, suporte a duplicidade Rextur e rastreio por reserva." },
+    { name: "Rateio de venda", description: "Divisao de comissão por recibo entre vendedores, com visão para financeiro e ranking." },
+  ]},
+  { id: "crm", number: "02", title: "CRM, clientes e relacionamento", summary: "A carteira ganha memoria comercial e temas de contato para agir no momento certo.", features: [
+    { name: "Cadastro de clientes", description: "Dados pessoais, contatos, CPF, endereco, tags, classificacao e empresa vinculada." },
+    { name: "Acompanhantes", description: "Passageiros recorrentes, documentos, parentesco, nascimento e observacoes." },
+    { name: "CRM visual", description: "Temas para aniversário, ano novo, relacionamento e campanhas com arte e assinatura." },
+    { name: "Últimas compras", description: "Lista de compras recentes para contato de agradecimento e pós-venda." },
+    { name: "Aniversariantes", description: "Clientes por período com atalhos para acao comercial." },
+    { name: "Histórico de envios", description: "Registro de templates, avisos e contatos realizados." },
+  ]},
+  { id: "orcamentos", number: "03", title: "Orçamentos, propostas e roteiros", summary: "Do atendimento inicial ao PDF final, o sistema organiza proposta, roteiro e conversão para venda.", features: [
+    { name: "Orçamentos", description: "Criacao, edicao, status, criticidade, itens, valores e cliente manual quando necessário." },
+    { name: "Importar orçamento", description: "Entrada de dados estruturados para reduzir retrabalho na criacao de propostas." },
+    { name: "Roteiros personalizados", description: "Dias, cidades, hoteis, transportes, passeios, investimentos e pagamentos." },
+    { name: "PDF de proposta", description: "Logo, imagem complementar, consultor, filial, rodape e dados de contato parametrizados." },
+    { name: "Circuitos", description: "Cadastro de roteiros combinados, dias, datas, cidades, status e preco medio." },
+    { name: "Produtos e destinos", description: "Catalogo operacional para montar propostas e padronizar destinos ofertados." },
+  ]},
+  { id: "relatorios", number: "04", title: "Relatórios e leitura de performance", summary: "Visões analíticas separadas por decisão: venda, cliente, produto, destino, ranking e recibo.", features: [
+    { name: "Relatório de vendas", description: "Vendas por período, empresa, vendedor, status, cliente, destino e recibo." },
+    { name: "Relatório de clientes", description: "Clientes que mais compram, volume gasto, recorrência e comportamento comercial." },
+    { name: "Relatório de produtos", description: "Produtos e tipos de produto com maior receita, taxas, seguro e margem operacional." },
+    { name: "Relatório de destinos", description: "Destinos mais vendidos, ranking por receita e recorte por empresa ou vendedor." },
+    { name: "Ranking de vendas", description: "Ranking por vendedor com conciliação, recibos manuais, taxas, seguro e metas." },
+    { name: "Produtos por recibo", description: "Analise detalhada por recibo para auditar performance e origem da receita." },
+  ]},
+  { id: "financeiro", number: "05", title: "Financeiro, conciliação e comissionamento", summary: "O financeiro acompanha o que foi vendido, conciliado e liberado para pagamento.", features: [
+    { name: "Conciliação", description: "Importação de extratos, match automático, auditoria de diferencas e dias sem movimento." },
+    { name: "Comissões", description: "Calculo por período, regras, status pendente/paga/cancelada e histórico de pagamento." },
+    { name: "Fechamento", description: "Consolidacao mensal restrita ao perfil financeiro." },
+    { name: "Ajustes de vendas", description: "Rateio, vendedor de ranking, produto de ranking e revisao de recibos conciliados." },
+    { name: "Formas de pagamento", description: "Regras de desconto, paga comissão, status e condicoes por empresa." },
+    { name: "Notas fiscais", description: "Área reservada ao perfil financeiro para controle fiscal e operacional." },
+  ]},
+  { id: "operacao", number: "06", title: "Operação, viagem e atendimento", summary: "Depois da compra, viagem, documento, voucher, SAC e follow-up continuam no mesmo ambiente.", features: [
+    { name: "Viagens", description: "Lista, detalhe, status, dossie, passageiros, recibos e acompanhamento por data." },
+    { name: "Vouchers", description: "Editor e preview de vouchers com logos, imagens, hoteis, dias, apps e emergencia." },
+    { name: "Documentos de viagem", description: "Arquivos, modelos, textos e documentos operacionais para a jornada do cliente." },
+    { name: "Controle de SAC", description: "Abertura, status, responsavel, prazo, motivo, interacoes e acompanhamento." },
+    { name: "Acompanhamento", description: "Retornos de viagem, pendencias operacionais e contato pós-venda." },
+    { name: "Campanhas", description: "Pecas, links, regras, status e validade para comunicacoes comerciais." },
+  ]},
+  { id: "gestao", number: "07", title: "Gestão de equipe e parâmetros", summary: "O gestor controla pessoas, metas, escalas, cadastros, produtos e regras sem depender da área técnica.", features: [
+    { name: "Dashboard gestor", description: "Vendas da equipe, ranking, follow-up, últimas compras, atividades e viagens." },
+    { name: "Metas", description: "Metas gerais, por vendedor, por produto, templates e copia entre periodos." },
+    { name: "Escalas", description: "Mes, horarios, feriados, tipo de dia, observacoes e autoaplicacao." },
+    { name: "Equipe", description: "Vendedores, vinculos, participacao em ranking e estrutura por empresa." },
+    { name: "Cadastros", description: "Paises, estados, cidades, fornecedores, produtos, destinos, circuitos e tipos." },
+    { name: "Parâmetros vouchers", description: "Logos, imagens e assets usados nos vouchers de fornecedores e operadores." },
+  ]},
+  { id: "master-admin", number: "08", title: "Master, admin e seguranca", summary: "A camada executiva consolida empresas, controla permissões e sustenta operações multiunidade.", features: [
+    { name: "Dashboard master", description: "Vendas de todas as equipes, evolucao, top destinos, top vendedores e clientes que mais gastaram." },
+    { name: "Empresas", description: "Portfolio de empresas, billing, status, vinculos master e escopo de acesso." },
+    { name: "Usuários e permissões", description: "Perfis, tipos de usuário, permissões por módulo, MFA e status de acesso." },
+    { name: "Logs administrativos", description: "Auditoria por data, módulo, acao, usuário, IP e detalhes." },
+    { name: "Documentacao", description: "Base editavel por módulo, perfil e contexto para orientar usuários do sistema." },
+    { name: "Seguranca", description: "Passkeys, MFA, sessao expirada, escopo por empresa e módulos habilitados." },
+  ]},
+];
+
+export const roleHighlights: FeatureCard[] = [
+  { title: "Vendedor", description: "Carteira, vendas, orçamentos, viagens, tarefas, CRM, comissões e relatórios individuais." },
+  { title: "Gestor", description: "Equipe, metas, escalas, cadastros, parâmetros, ranking, conciliação e indicadores da loja." },
+  { title: "Master", description: "Empresas, usuários, permissões, dashboards consolidados e leitura de todas as equipes atribuidas." },
 ];
 
 export const roleContent: RoleContent[] = [
-  {
-    id: "vendedor",
-    label: "Vendedor",
-    badge: "Operacao comercial",
-    summary:
-      "Perfil orientado a relacionamento, produtividade comercial e acompanhamento completo da carteira.",
-    outcomes: [
-      "Mantem a rotina comercial organizada sem sair do CRM.",
-      "Acompanha cliente, proposta, venda, viagem e pos-venda em continuidade.",
-      "Visualiza metas, comissoes e indicadores individuais de performance.",
-    ],
-    groups: [
-      {
-        title: "Rotina e acompanhamento",
-        description: "Modulos que sustentam o dia a dia do vendedor dentro do sistema.",
-        modules: [
-          { name: "Dashboard", description: "Indicadores pessoais, follow-up, consultorias e viagens proximas." },
-          { name: "Agenda", description: "Compromissos, retornos e organizacao da agenda comercial." },
-          { name: "Tarefas", description: "Pendencias por status para nao perder oportunidades." },
-          { name: "Mural de Recados", description: "Comunicados operacionais e alinhamentos internos." },
-          { name: "Minhas Preferencias", description: "Ajustes pessoais para experiencia e rotina de uso." },
-          { name: "Campanhas", description: "Acesso a campanhas e informativos comerciais." },
-          { name: "Minha Escala", description: "Visualizacao da escala individual diretamente no perfil." },
-        ],
-      },
-      {
-        title: "CRM e vendas",
-        description: "Frente comercial completa para captar, negociar, converter e acompanhar a carteira.",
-        modules: [
-          { name: "Clientes", description: "Carteira com busca, classificacao, historico, acompanhantes e dados do cliente." },
-          { name: "Vendas", description: "Consulta, cadastro, edicao, recibos, pagamentos e filtros por periodo." },
-          { name: "Importar Contratos", description: "Importacao em lote de contratos e vendas quando habilitada." },
-          { name: "Orcamentos", description: "Criacao, acompanhamento de status e detalhamento de propostas." },
-          { name: "Importar Orcamentos", description: "Entrada em lote seguindo o template do sistema quando habilitada." },
-          { name: "Consultoria Online", description: "Registro de interacoes, busca e fechamento de consultorias." },
-        ],
-      },
-      {
-        title: "Operacao, atendimento e performance",
-        description: "Etapas que conectam o comercial ao pos-venda e a leitura de resultados.",
-        modules: [
-          { name: "Viagens", description: "Lista de viagens, acesso ao dossie e informacoes adicionais do embarque." },
-          { name: "Documentos Viagens", description: "Documentos operacionais vinculados ao fluxo de viagem." },
-          { name: "Controle de SAC", description: "Historico, filtros, registro de interacao e acompanhamento do atendimento." },
-          { name: "Comissionamento", description: "Consulta das comissoes apuradas conforme vendas e regras vigentes." },
-          { name: "Metas", description: "Visualizacao das metas definidas pelo gestor quando o modulo estiver habilitado." },
-          { name: "Relatorios de Vendas", description: "Visao detalhada, por destino, produto, cliente e ranking." },
-        ],
-      },
-    ],
-  },
-  {
-    id: "gestor",
-    label: "Gestor",
-    badge: "Gestao de equipe",
-    inherit: "Inclui todos os recursos do perfil Vendedor, com visao ampliada para a equipe e a unidade.",
-    summary:
-      "Perfil para liderancas comerciais que precisam acompanhar pessoas, metas, cadastros, parametros e resultados.",
-    outcomes: [
-      "Controla performance da equipe com KPIs, metas e ranking.",
-      "Organiza operacao, escalas e parametrizacoes sem depender de varias ferramentas.",
-      "Cria governanca comercial com regras, cadastros e conciliacao.",
-    ],
-    groups: [
-      {
-        title: "Gestao comercial e people management",
-        description: "Camada gerencial para acompanhar resultados, times e capacidade operacional.",
-        modules: [
-          { name: "Dashboard Gestor", description: "Indicadores consolidados da equipe, follow-up e visao por time." },
-          { name: "Equipe", description: "Cadastro e gestao de usuarios, horarios de trabalho e atribuicoes." },
-          { name: "Metas", description: "Metas gerais, metas por vendedor, divisao por equipe e por produto." },
-          { name: "Escalas", description: "Escala mensal, feriados, horarios e atribuicao automatica." },
-          { name: "Ranking de Vendas", description: "Comparativo de performance entre vendedores e periodos." },
-        ],
-      },
-      {
-        title: "Financeiro e regras comerciais",
-        description: "Modulos para garantir consistencia financeira e regras da operacao.",
-        modules: [
-          { name: "Conciliaçao", description: "Controle operacional e financeiro para validacao de recebimentos." },
-          { name: "Regras de Comissao", description: "Configuracao das regras de apuracao comercial." },
-          { name: "Formas de Pagamento", description: "Cadastro e manutencao das formas aceitas pela operacao." },
-          { name: "Cambios", description: "Parametros de cambio para produtos e negociacoes aplicaveis." },
-          { name: "Fechamento de Comissao", description: "Consolidacao do periodo quando o modulo estiver habilitado." },
-        ],
-      },
-      {
-        title: "Cadastros e parametros",
-        description: "Base estrutural que sustenta a operacao e padroniza a experiencia da equipe.",
-        modules: [
-          { name: "Paises", description: "Cadastro de paises utilizados pela operacao." },
-          { name: "Subdivisoes", description: "Estados, provincias e subdivisoes administrativas." },
-          { name: "Cidades", description: "Base geografica para origem, destino e atendimento." },
-          { name: "Destinos", description: "Cadastro de destinos turisticos e comerciais." },
-          { name: "Produtos", description: "Catalogo comercial de produtos e servicos." },
-          { name: "Circuitos", description: "Estruturacao de circuitos e roteiros." },
-          { name: "Produtos em Lote", description: "Carga e manutencao em lote do portfolio." },
-          { name: "Fornecedores", description: "Base de parceiros e fornecedores da operacao." },
-          { name: "Tipo de Produtos", description: "Padronizacao do catalogo por categoria." },
-          { name: "Tipo de Pacotes", description: "Tipos e familias de pacotes ofertados." },
-          { name: "Parâmetros do Sistema", description: "Configuracoes gerais da operacao e do ambiente." },
-          { name: "Avisos", description: "Comunicacoes e avisos internos publicados para os usuarios." },
-          { name: "Orçamentos (PDF)", description: "Templates e padroes de saida para propostas." },
-        ],
-      },
-    ],
-  },
-  {
-    id: "master",
-    label: "Master",
-    badge: "Governanca multiempresa",
-    inherit:
-      "Recebe a camada de governanca corporativa e pode combinar acessos gerenciais conforme a politica da operacao.",
-    summary:
-      "Perfil corporativo para consolidar empresas, usuarios, permissoes e visao executiva do ecossistema.",
-    outcomes: [
-      "Enxerga a operacao por empresa, filial ou consolidado.",
-      "Controla acesso, governanca e padronizacao entre unidades.",
-      "Acompanha indicadores executivos sem perder a visao operacional do negocio.",
-    ],
-    groups: [
-      {
-        title: "Governanca e administracao multiempresa",
-        description: "Nucleo de controle corporativo do sistema.",
-        modules: [
-          { name: "Dashboard Master", description: "Visao consolidada do ambiente e leitura executiva por empresa." },
-          { name: "Empresas", description: "Cadastro e gestao das empresas e unidades do ambiente." },
-          { name: "Usuarios", description: "Gestao de usuarios entre empresas e equipes." },
-          { name: "Permissoes", description: "Definicao global de permissoes por tipo de usuario e modulo." },
-          { name: "Selecao de Empresa", description: "Troca de contexto para navegar por diferentes operacoes." },
-        ],
-      },
-      {
-        title: "Inteligencia executiva",
-        description: "Leitura consolidada para acompanhar o negocio em mais de uma estrutura.",
-        modules: [
-          { name: "Relatorios Consolidados", description: "Relatorios por empresa, cliente, destino, produto e vendedor." },
-          { name: "Vendas por Destino", description: "Visao multiempresa com filtros para leitura comparativa." },
-          { name: "Vendas Detalhadas", description: "Analise aprofundada com filtros e apoio contextual." },
-          { name: "Ranking de Vendas", description: "Comparacao entre equipes, empresas e periodos." },
-        ],
-      },
-      {
-        title: "Operacao corporativa",
-        description: "Acesso master a parametros e configuracoes quando a operacao exigir visao centralizada.",
-        modules: [
-          { name: "Escalas e Parametros", description: "Ajustes corporativos de escalas, equipe e parametros quando habilitados." },
-          { name: "Cadastros Compartilhados", description: "Suporte a cadastros estruturais que afetam multiplas empresas." },
-          { name: "Governanca de Acesso", description: "Controle de escopo por empresa, perfil e responsabilidade operacional." },
-        ],
-      },
-    ],
-  },
+  { id: "vendedor", label: "Vendedor", badge: "Operação comercial", summary: "Perfil para quem vende, acompanha clientes e transforma atendimento em reserva, venda e pós-venda.", outcomes: ["Consulta carteira, aniversariantes, últimas compras e histórico.", "Cria vendas, importa contratos, acompanha orçamentos e visualiza comissões.", "Organiza agenda, tarefas, viagens, SAC e follow-up."], groups: [
+    { title: "CRM e rotina", description: "Ferramentas para manter a carteira ativa.", modules: [
+      { name: "Dashboard vendedor", description: "KPIs, próximas viagens, atividades e aniversariantes." }, { name: "Clientes", description: "Carteira, acompanhantes, histórico, CRM e templates." }, { name: "Agenda e tarefas", description: "Compromissos, Kanban/lista, prioridade e categoria." }, { name: "Consultoria online", description: "Atendimentos, destino, taxa, lembrete e notas." }]},
+    { title: "Venda e proposta", description: "Do contrato ao recibo.", modules: [
+      { name: "Vendas", description: "Cadastro, edicao, recibos, pagamentos e contratos." }, { name: "Importar vendas", description: "CVC, cruzeiro e Rextur com extracao de campos críticos." }, { name: "Orçamentos", description: "Propostas, status, interacoes, itens e conversão." }, { name: "Roteiros", description: "Dias, hoteis, transportes e investimento." }]},
+  ]},
+  { id: "gestor", label: "Gestor", badge: "Gestão da loja", inherit: "Inclui a operação do vendedor e adiciona leitura da equipe, parametrização e controle gerencial.", summary: "Perfil para acompanhar pessoas, metas, cadastros e resultados da loja.", outcomes: ["Acompanha vendas da equipe, ranking, top destinos e follow-up.", "Configura metas, escalas, equipe, produtos, fornecedores e parâmetros.", "Controla conciliação, ajustes, regras e relatórios gerenciais."], groups: [
+    { title: "Gestão comercial", description: "Painel de comando da loja.", modules: [
+      { name: "Dashboard gestor", description: "KPIs, ranking, follow-up e aniversariantes." }, { name: "Metas", description: "Metas por vendedor, produto, template e período." }, { name: "Equipe", description: "Usuários vinculados, ranking e estrutura por empresa." }, { name: "Escalas", description: "Período, horarios, feriados e distribuicao." }]},
+    { title: "Cadastros e parâmetros", description: "Base operacional da venda.", modules: [
+      { name: "Produtos e destinos", description: "Produtos, tarifas, fornecedores, circuitos e cidades." }, { name: "Vouchers", description: "Templates, logos, imagens, hoteis e dias." }, { name: "Campanhas", description: "Pecas comerciais, links, regras e validade." }, { name: "Parâmetros", description: "Sistema, comissão, orçamentos, vouchers e CRM." }]},
+  ]},
+  { id: "financeiro", label: "Financeiro", badge: "Controle financeiro", summary: "Perfil focado em conciliação, comissionamento, fechamento, notas fiscais e auditoria.", outcomes: ["Valida extratos e diferencas entre sistema e lancamentos.", "Calcula e controla comissões pagas, pendentes e canceladas.", "Acessa áreas restritas como fechamento e notas fiscais."], groups: [
+    { title: "Conferencia e conciliação", description: "Rotina financeira diária.", modules: [
+      { name: "Conciliação", description: "Importar, conciliar, auditar diferenca e sanear." }, { name: "Ajustes de vendas", description: "Rateios, vendedor destino e percentual por recibo." }, { name: "Baixa RAC", description: "Identificacao de documentos fora do ranking comum." }, { name: "Execucoes", description: "Histórico de processamento e status." }]},
+    { title: "Comissões e fechamento", description: "Ciclo de pagamento.", modules: [
+      { name: "Comissões", description: "Calculo, consulta, pagamento, edicao e cancelamento." }, { name: "Fechamento", description: "Consolidacao mensal restrita ao financeiro." }, { name: "Notas fiscais", description: "Área fiscal visivel somente para financeiros." }, { name: "Auditoria", description: "Logs, diferencas, detalhes e rastreio." }]},
+  ]},
+  { id: "master", label: "Master", badge: "Governança multiempresa", inherit: "Camada executiva para grupos, redes e operações com mais de uma empresa.", summary: "Perfil para consolidar indicadores, controlar empresas, usuários, permissões e escopos.", outcomes: ["Ve vendas de todas as equipes e empresas atribuidas.", "Compara vendedores independente da loja.", "Administra usuários, empresas, permissões e módulos."], groups: [
+    { title: "Visão executiva", description: "Indicadores consolidados.", modules: [
+      { name: "Dashboard master", description: "Vendas das equipes, evolucao, top destinos e seguro." }, { name: "Top vendedores", description: "Ranking geral entre lojas e equipes." }, { name: "Clientes que mais gastaram", description: "Nome, saída, destino e valor no mes." }, { name: "Últimas compras", description: "Compras recentes para relacionamento." }]},
+    { title: "Governança", description: "Controle de acesso e portfolio.", modules: [
+      { name: "Empresas", description: "Escopo, status, billing e vinculos master." }, { name: "Usuários", description: "Perfis, empresas, status, 2FA e tipo." }, { name: "Permissões", description: "Módulo, papel, acesso e matriz." }, { name: "Logs", description: "Acoes, usuário, IP, data e detalhes." }]},
+  ]},
 ];
 
 export const implementationSteps: FeatureCard[] = [
-  {
-    title: "Diagnostico operacional",
-    description:
-      "Levantamento da rotina comercial, da estrutura da equipe e dos modulos que serao ativados.",
-  },
-  {
-    title: "Configuracao e parametrizacao",
-    description:
-      "Ajuste de permissoes, cadastros, templates, metas, regras de comissao e operacao inicial.",
-  },
-  {
-    title: "Migracao e treinamento",
-    description:
-      "Importacao de dados, orientacao dos perfis e validacao dos principais fluxos do negocio.",
-  },
-  {
-    title: "Go-live com evolucao continua",
-    description:
-      "Entrada em producao com acompanhamento, refinamento e expansao por modulos e unidades.",
-  },
+  { title: "Diagnostico da operação", description: "Mapeamento de usuários, empresas, lojas, fluxo de venda, origem de contratos e regras comerciais." },
+  { title: "Parametrização guiada", description: "Permissões, metas, comissões, formas de pagamento, vouchers, logos, cadastros e documentacao." },
+  { title: "Treinamento por perfil", description: "Vendedor, gestor, financeiro e master aprendem apenas o que precisam operar." },
+  { title: "Go-live com auditoria", description: "Validação de importações, conciliação, ranking, relatórios e acompanhamento das primeiras rotinas." },
 ];
 
 export const pricingPlans: PlanCard[] = [
-  {
-    name: "Comercial",
-    audience: "Equipes que querem estruturar CRM, carteira, orcamentos e vendas.",
-    price: "Sob consulta",
-    description:
-      "Entrada ideal para padronizar a operacao comercial e conectar clientes, propostas, vendas e pos-venda.",
-    features: [
-      "Camada Vendedor",
-      "CRM e carteira de clientes",
-      "Orcamentos, vendas e consultoria",
-      "Agenda, tarefas e campanhas",
-      "Viagens, documentos e SAC",
-      "Relatorios operacionais",
-    ],
-  },
-  {
-    name: "Gestao",
-    audience: "Operacoes que precisam de performance, lideranca e controle da equipe.",
-    price: "Sob consulta",
-    description:
-      "Amplia a base comercial com metas, escalas, cadastros, parametros e visao gerencial do negocio.",
-    highlight: true,
-    features: [
-      "Tudo do plano Comercial",
-      "Camada Gestor",
-      "Dashboard gestor e ranking",
-      "Equipe, metas e escalas",
-      "Conciliaçao e regras de comissao",
-      "Cadastros e parametros do sistema",
-    ],
-  },
-  {
-    name: "Master",
-    audience: "Grupos, redes ou operacoes com mais de uma empresa ou unidade.",
-    price: "Sob consulta",
-    description:
-      "Pacote para governanca corporativa, multiempresa, controle de acesso e leitura consolidada.",
-    features: [
-      "Tudo do plano Gestao",
-      "Camada Master",
-      "Empresas, usuarios e permissoes",
-      "Visao consolidada por empresa",
-      "Governanca multiempresa",
-      "Expansao por unidade e estrutura",
-    ],
-  },
+  { name: "Comercial", audience: "Lojas que precisam organizar CRM, propostas, vendas e pós-venda.", price: "Sob consulta", description: "Entrada para padronizar a rotina comercial.", features: ["Dashboard vendedor", "Clientes, CRM e aniversariantes", "Vendas manuais e importadas", "Orçamentos e propostas", "Viagens, documentos e SAC", "Relatórios operacionais"] },
+  { name: "Gestão", audience: "Operações que precisam controlar equipe, metas, cadastros e financeiro.", price: "Sob consulta", description: "Camada completa para lojas que querem gestão ativa.", highlight: true, features: ["Tudo do Comercial", "Dashboard gestor e ranking", "Metas, equipe e escalas", "Cadastros e fornecedores", "Conciliação e comissão", "Parâmetros e vouchers"] },
+  { name: "Master", audience: "Grupos, redes ou operações com mais de uma empresa.", price: "Sob consulta", description: "Governança multiempresa e consolidacao executiva.", features: ["Tudo do Gestão", "Dashboard master", "Empresas, usuários e permissões", "Top vendedores entre lojas", "Clientes que mais gastaram", "Governança por escopo"] },
 ];
 
 export const institutionalPrinciples: FeatureCard[] = [
-  {
-    title: "Especializacao em turismo e viagens",
-    description:
-      "O vtur foi desenhado para a rotina de venda, atendimento, operacao e relacionamento do setor.",
-  },
-  {
-    title: "Clareza operacional",
-    description:
-      "Menus, modulos e permissoes organizados para cada perfil enxergar apenas o que precisa operar.",
-  },
-  {
-    title: "Confianca e governanca",
-    description:
-      "Escopo por empresa, permissao por papel e leitura consolidada sem perder o controle do acesso.",
-  },
-  {
-    title: "Evolucao por maturidade",
-    description:
-      "O produto pode comecar pela camada comercial e evoluir para gestao, parametros e multiempresa.",
-  },
+  { title: "Especializacao em turismo", description: "O produto entende contrato, reserva, recibo, taxas, passageiros, viagem, voucher e pós-venda." },
+  { title: "Operação antes de aparencia", description: "A interface e limpa, mas cada tela existe para resolver uma etapa real da agência." },
+  { title: "Governança por perfil", description: "Vendedor, gestor, financeiro, master e admin nao veem a mesma coisa." },
+  { title: "Evolucao continua", description: "O sistema cresce por módulo e acompanha novos modelos de documento." },
 ];
 
 export const faqs = [
-  {
-    question: "O vtur e apenas um sistema de vendas?",
-    answer:
-      "Nao. O vtur se posiciona como um CRM completo para turismo e viagens, conectando relacionamento, vendas, operacao, atendimento, gestao e governanca multiempresa.",
-  },
-  {
-    question: "Os modulos podem ser liberados conforme o perfil do usuario?",
-    answer:
-      "Sim. A estrutura do sistema trabalha com permissoes por modulo e por perfil, o que permite compor experiencias para vendedor, gestor e master sem expor menus desnecessarios.",
-  },
-  {
-    question: "O sistema atende apenas uma empresa?",
-    answer:
-      "Nao. O perfil Master contempla operacao multiempresa, com troca de contexto, relatorios consolidados e governanca corporativa.",
-  },
-  {
-    question: "Como a implantacao pode acontecer?",
-    answer:
-      "O fluxo recomendado passa por diagnostico, parametrizacao, migracao, treinamento e entrada em producao com acompanhamento das primeiras rotinas.",
-  },
+  { question: "O VTUR é apenas um CRM?", answer: "Não. Ele combina CRM, vendas, importação de contratos, orçamentos, viagens, financeiro, comissionamento, relatórios, governança e operação diária." },
+  { question: "Quais importações de venda o sistema cobre?", answer: "O fluxo atual contempla contratos CVC, reservas Rextur, cruzeiros e cadastro manual, com evolucao continua conforme novos modelos surgem." },
+  { question: "O financeiro ve as mesmas opcoes que outros usuários?", answer: "Não. Fechamento, nota fiscal e pagamento de comissões sao funções restritas ao perfil financeiro." },
+  { question: "O master ve todas as lojas?", answer: "O master ve as empresas atribuidas ao seu escopo, com dashboards consolidados, top vendedores, últimas compras e governança." },
 ];

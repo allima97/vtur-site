@@ -1,0 +1,123 @@
+---
+import SiteLayout from "../layouts/SiteLayout.astro";
+
+const title = "Contato";
+const description =
+  "Pagina de contato do vtur para demonstracao, proposta comercial, implantacao e alinhamento operacional.";
+---
+
+<SiteLayout title={title} description={description}>
+  <section class="page-hero">
+    <div class="shell hero-layout">
+      <div>
+        <span class="eyebrow">Contato comercial</span>
+        <h1 class="hero-title">A pagina de contato precisa qualificar a conversa, nao apenas coletar nome e telefone.</h1>
+        <p class="hero-copy">
+          Grandes empresas de software usam a pagina de contato para separar intencao comercial,
+          contexto operacional e maturidade do cliente. O vtur deve seguir esse mesmo principio.
+        </p>
+        <div class="hero-actions">
+          <a class="button" href="/produto">Ver modulos antes da demonstracao</a>
+          <a class="button-secondary" href="/planos">Entender camadas comerciais</a>
+        </div>
+      </div>
+
+      <aside class="hero-panel">
+        <strong>Conversas que a pagina deve abrir</strong>
+        <ul class="trust-list">
+          <li>Demonstracao orientada pelo perfil do cliente.</li>
+          <li>Proposta comercial por escopo, usuarios e estrutura.</li>
+          <li>Migracao, implantacao e treinamento do time.</li>
+        </ul>
+      </aside>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="shell">
+      <div class="section-header">
+        <p class="section-kicker">Canais e intencoes</p>
+        <h2 class="section-title">Estruture o contato por tipo de necessidade</h2>
+        <p class="section-intro">
+          Mesmo antes de conectar um formulario real, a pagina ja pode orientar o discurso comercial
+          com clareza e maturidade.
+        </p>
+      </div>
+
+      <div class="contact-grid">
+        <article class="contact-panel">
+          <strong>Demonstracao do produto</strong>
+          <p>Para operacoes que querem ver os modulos do vtur aplicados ao seu contexto real.</p>
+        </article>
+        <article class="contact-panel">
+          <strong>Proposta comercial</strong>
+          <p>Para discutir planos, estrutura de usuarios, escopo, implantacao e crescimento por unidade.</p>
+        </article>
+        <article class="contact-panel">
+          <strong>Implantacao e migracao</strong>
+          <p>Para mapear parametrizacao, carga inicial, treinamento e entrada em producao.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="shell content-layout">
+      <div class="content-copy">
+        <div class="section-header">
+          <p class="section-kicker">Briefing recomendado</p>
+          <h2 class="section-title">Os campos que o comercial deve coletar</h2>
+        </div>
+
+        <h3>Estrutura da operacao</h3>
+        <p>
+          Quantidade de usuarios, perfis necessarios, unidades, filiais, empresas, time comercial e
+          responsabilidades de cada camada.
+        </p>
+
+        <h3>Escopo desejado</h3>
+        <p>
+          Quais modulos precisam entrar primeiro: CRM, vendas, orcamentos, viagens, SAC, metas,
+          escalas, parametros ou governanca multiempresa.
+        </p>
+
+        <h3>Momento do cliente</h3>
+        <p>
+          Implantacao nova, migracao de sistema anterior, reestruturacao da rotina comercial ou
+          padronizacao de uma operacao que cresceu rapido.
+        </p>
+
+        <p class="contact-note">
+          A integracao do envio pode ser ligada depois com webhook, Resend ou outra camada de
+          captura. Nesta etapa, a pagina ja cumpre o papel estrategico de orientar a conversa.
+        </p>
+      </div>
+
+      <aside class="content-panel">
+        <strong>Checklist para uma demonstracao forte</strong>
+        <ul class="trust-list">
+          <li>Apresentar o sistema pelo perfil do comprador.</li>
+          <li>Mostrar a camada comercial antes da camada tecnica.</li>
+          <li>Provar governanca e seguranca com o modelo de permissoes.</li>
+          <li>Conectar planos ao momento operacional do cliente.</li>
+        </ul>
+      </aside>
+    </div>
+  </section>
+
+  <section class="cta-section">
+    <div class="shell">
+      <div class="cta-panel">
+        <h2>A pagina de contato agora qualifica melhor a oportunidade.</h2>
+        <p>
+          Ela deixa de ser apenas um formulario generico e passa a funcionar como ponte entre a
+          narrativa do produto, a estrutura comercial e a implantacao.
+        </p>
+        <div class="cta-actions">
+          <a class="button" href="/produto">Revisar modulos</a>
+          <a class="button-secondary" href="/planos">Alinhar escopo comercial</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</SiteLayout>
